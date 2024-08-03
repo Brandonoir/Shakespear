@@ -21,3 +21,5 @@ Route::post('/login', [userController::class, 'login']);
 
 //post related routes
 Route::post('/createPost', [postController::class, 'createPost']);
+Route::get('/edit-post/{post}', [postController::class, 'showEditScreen']);
+Route::put('/edit-post/{post}', [postController::class, 'commitEditPost']);

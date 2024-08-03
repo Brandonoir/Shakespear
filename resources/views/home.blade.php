@@ -25,6 +25,12 @@
             <div style="background-color: lightgray; padding: 5px; margin: 10px">
                 <h3>{{$blog['postTitle']}}</h3>
                 {{$blog['postContent']}}
+                <p><a href="/edit-post/{{$blog->id}}">Edit</a></p>
+                <form action="/delete-post/{{$blog->id}}">
+                @csrf
+                @method('DELTE')
+                <button>Delete</button>
+                </form>
             </div>
         @endforeach
     </div>
