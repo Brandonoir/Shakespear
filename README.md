@@ -1,4 +1,4 @@
-## A prcatice CRUD website
+## A practice CRUD website
 
 It is intended to gain knowledge on CRUD methods with PHP and Laravel.
 
