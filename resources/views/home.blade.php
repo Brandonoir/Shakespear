@@ -3,48 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
     <title>Document</title>
 </head>
 
 <body>
-    
+    <!-- check if the user is logged in -->
     @auth
-    <div style="border:3px solid black";>
-        <h2>Create Post</h2>
-        <form action="/createPost" method="post">
-        @csrf
-        <input name="postTitle" type="text" placeholder="Title">
-        <textarea name="postContent" type="text" placeholder="content"></textarea>
-        <button>Submit</button>
-    </form>
-    </div>
 
-    <div style="border:3px solid black";>
-        <h2>Blogs</h2>
-        @foreach ($blogs as $blog)
-            <div style="background-color: lightgray; padding: 5px; margin: 10px">
-                <h3>{{$blog['postTitle']}}</h3>
-                {{$blog['postContent']}}
-                <p><a href="/edit-post/{{$blog->id}}">Edit</a></p>
-                <form action="/delete-post/{{$blog->id}}">
-                @csrf
-                @method('DELTE')
-                <button>Delete</button>
+    <div class="home_page">
+        <div class="header">
+            <h1>Shakespear</h1>
+        </div>
+
+        <div style="display:flex">
+            <div class="nav_bar">
+                <h2>Menu</h2>
+
+                <!-- personal blogs page -->
+                <div class="nav_item">
+                    <form action="/personal" method="GET">
+                        <button>Personal</button>
+                    </form>
+                </div>
+
+                <!-- Compose a Blog -->
+                <div class="nav_item">
+                    <form action="/compose-blog" method="POST">
+                        @csrf
+                        <button>Compose</button>
+                    </form>
+                </div>
+            
+
+            <!-- logout -->
+            <div class="nav_item">
+                <form action="/logout" method="POST">
+                        @csrf
+                    <button>Logout</button>
                 </form>
             </div>
-        @endforeach
+            </div>
+
+            <div class="dashboard">
+
+                <!-- display blogs from the database -->
+                <div class="blogs">
+                    <h2 class="blog_header">Blogs</h2>
+                    @foreach ($blogs as $blog)
+                        <div class="blog_post">
+                            <h3>{{$blog['postTitle']}} ( by {{$blog->publisher->name}} )</h3>
+                            {{$blog['postContent']}}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </div>
-
-    <form action="/logout" method="POST">
-        @csrf
-        <button>Logout</button>
-    </form>
-
-    <form action="/personal" method="GET">
-    <button>Personal</button>
-    </form>
-
+    <!-- if the user is not logged in, redirect to login page -->
     @else
+
+    <!-- register -->
     <div style="border: 3px solid black;">
         <h2>Register</h2>
         <form action="/register" method="POST">
@@ -56,6 +75,7 @@
         </form>
     </div>
 
+    <!-- login -->
     <div style="border: 3px solid black;">
         <h2>Login</h2>
         <form action="/login" method="POST">

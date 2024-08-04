@@ -1,21 +1,40 @@
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-    <h1>Personal Blogs</h1>
-    <div style="border:3px solid black";>
-        @foreach($blogs as $blog)
-        <div style="background-color: lightgray; padding: 5px; margin:20px">
-            <h3>{{$blog['postTitle']}}</h3>
-            {{$blog['postContent']}}
-            <p><a href="/edit-post/{{$blog->id}}">Edit</a></p>
-            <form action="/delete-post/{{$blog->id}}">
-            @csrf
-            @method('DELTE')
-            <button>Delete</button>
-            </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/personal.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="display">
+        <!-- display user's personal blogs -->
+        <h1 class="header">Personal Blogs</h1>
+        <form action="/">
+            <button>Home</button>
+        </form>
+        <div class="dashboard">
+            @foreach($blogs as $blog)
+            <div class="blog_post">
+
+                <h3>{{$blog['postTitle']}}</h3>
+                {{$blog['postContent']}}
+
+                <p class="button_edit"><a href="/edit-post/{{$blog->id}}">Edit</a></p>
+                
+                <div class="button_delete">
+                    <form action="/delete-post/{{$blog->id}}" method="POST">
+
+                    @csrf
+                    @method('DELETE')
+                    <button>Delete</button>
+
+                    </form>
+                </div>
+            </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
-    <form action="/">
-        <button>Home</button>
-    </form>
-</div>
+</body>
+</html>

@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class postController extends Controller
 {
+    //delete post
+    public function deletePost(Post $post)
+    {
+        if (auth()->user()->id === $post['user_id']) {
+            $post->delete();
+        }
+        return redirect()->back();
+    }
 
     //commit post edit to database
     public function commitEditPost(Post $post, Request $request)
@@ -22,18 +30,23 @@ class postController extends Controller
         ]);
 
         $post->update($incomingFields);
-        return redirect('/');
+        return redirect('/personal');
     }
 
     //show edit post screen
     public function showEditScreen(Post $post)
     {
-        //redirect non-authors back to homepage
         if (auth()->user()->id !== $post->user_id) {
             return redirect()->back();
         }
 
         return view("editPost", ["post" => $post]);
+    }
+
+    //show compose blog view
+    public function showComposeScreen(Post $post)
+    {
+        return view("createPost", ["post" => $post]);
     }
 
     //post content

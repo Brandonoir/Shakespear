@@ -20,6 +20,8 @@ Route::post('/logout', [userController::class, 'logout']);
 Route::post('/login', [userController::class, 'login']);
 
 //post related routes
+Route::post('/compose-blog', [postController::class, 'showComposeScreen']);
 Route::post('/createPost', [postController::class, 'createPost']);
 Route::get('/edit-post/{post}', [postController::class, 'showEditScreen']);
 Route::put('/edit-post/{post}', [postController::class, 'commitEditPost']);
+Route::delete('/delete-post/{post}', [postController::class, 'deletePost']);

@@ -45,6 +45,7 @@ class User extends Authenticatable
         ];
     }
 
+    //return blog posts of the current user
     public function userPersonalPost()
     {
         return $this->hasMany(Post::class, 'user_id');
