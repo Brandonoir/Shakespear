@@ -24,13 +24,13 @@
                 <p class="button_edit"><a href="/edit-post/{{$blog->id}}">Edit</a></p>
                 
                 <div class="button_delete">
+
                     <form action="/delete-post/{{$blog->id}}" method="POST">
-
-                    @csrf
-                    @method('DELETE')
-                    <button>Delete</button>
-
+                        @csrf
+                        @method('DELETE')
+                        <button>Delete</button>
                     </form>
+
                 </div>
             </div>
             @endforeach
