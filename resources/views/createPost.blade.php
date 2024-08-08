@@ -12,7 +12,7 @@
        <div class="dashboard">
         <h2 class="header">Create Post</h2>
          <form action="/createPost" method="post">
-              @csrf
+            @csrf
             <div>
                   <input class="title_input" name="postTitle" type="text" placeholder="Title">
             </div>

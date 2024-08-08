@@ -26,10 +26,34 @@ body{
 }
 
 .nav_item{
-    border-bottom: solid #7FA1C3; 
-    width: 80%;   
-    margin:10%; 
-    padding-top: 10%;
+    /*border-bottom: solid #7FA1C3;*/ 
+    background-color: #E2DAD6;
+    border-radius: 15px;
+    margin:10%;
+    padding: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: #6482AD;
+}
+
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #6482AD;
+    transition: width .4s;
+}
+
+a:hover{
+    color: #7FA1C3;
+}
+
+a:hover::after {
+    width: 100%;
+    transition: width .4s;
 }
 
 .blogs{

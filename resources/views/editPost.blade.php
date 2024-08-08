@@ -12,7 +12,7 @@
         <h1 class="header">Edit Post</h1>
 
         <form class="dashboard" action="/edit-post/{{$post->id}}" method="post">
-             @csrf
+            @csrf
             @method('put')
             <input class="title" name="postTitle" type="text" value="{{$post->postTitle}}">
             <textarea class="content" name="postContent" type="text">{{$post->postContent}}</textarea>

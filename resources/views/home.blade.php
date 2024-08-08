@@ -16,32 +16,25 @@
             <h1>Shakespear</h1>
         </div>
 
+        <!-- navigation items -->
         <div style="display:flex">
             <div class="nav_bar">
                 <h2>Menu</h2>
 
                 <!-- personal blogs page -->
                 <div class="nav_item">
-                    <form action="/personal" method="GET">
-                        <button>Personal</button>
-                    </form>
+                    <a href="/personal">Personal Blogs</a>
                 </div>
 
                 <!-- Compose a Blog -->
                 <div class="nav_item">
-                    <form action="/compose-blog" method="POST">
-                        @csrf
-                        <button>Compose</button>
-                    </form>
+                    <a href="/compose-blog">Compose</a>
                 </div>
             
 
             <!-- logout -->
             <div class="nav_item">
-                <form action="/logout" method="POST">
-                        @csrf
-                    <button>Logout</button>
-                </form>
+                <a href="/logout">Logout</a>
             </div>
             </div>
 

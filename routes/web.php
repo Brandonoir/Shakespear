@@ -16,11 +16,11 @@ Route::get('/personal', function () {
 
 //authentication related routes
 Route::post('/register', [userController::class, 'register']);
-Route::post('/logout', [userController::class, 'logout']);
+Route::get('/logout', [userController::class, 'logout']);
 Route::post('/login', [userController::class, 'login']);
 
 //post related routes
-Route::post('/compose-blog', [postController::class, 'showComposeScreen']);
+Route::get('/compose-blog', [postController::class, 'showComposeScreen']);
 Route::post('/createPost', [postController::class, 'createPost']);
 Route::get('/edit-post/{post}', [postController::class, 'showEditScreen']);
 Route::put('/edit-post/{post}', [postController::class, 'commitEditPost']);

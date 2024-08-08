@@ -5,12 +5,12 @@ body{
 
 .dashboard{
     width: 80%;
-    margin-top: 6%;
+    margin-top: 1%;
     margin-left: 10%;
     border-radius: 5px;
     text-align: center;
     color: #6482AD;
-    box-shadow: 0px 0px 20px #E2DAD6; 
+    box-shadow: 0px 0px 20px lightgrey; 
 }
 
 .header{
@@ -45,5 +45,5 @@ body{
 .button_discard{
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 15px;
 }
